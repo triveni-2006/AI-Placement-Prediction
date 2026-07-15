@@ -52,8 +52,13 @@ h3 {
 """, unsafe_allow_html=True)
 
 # Load model
-model = pickle.load(open("placement_model.pkl", "rb"))
+import os
+import pickle
 
+model_path = os.path.join(os.path.dirname(__file__), "placement_model.pkl")
+
+with open(model_path, "rb") as file:
+    model = pickle.load(file)
 st.title("🎓 AI Based Placement Prediction System")
 
 st.markdown(
